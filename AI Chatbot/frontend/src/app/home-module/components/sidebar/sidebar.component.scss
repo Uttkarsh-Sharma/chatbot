@@ -1,0 +1,156 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.sidebar {
+  width: var(--cb-sidebar-width);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0.875rem;
+  background: var(--cb-sidebar);
+  border-right: 1px solid var(--cb-border);
+}
+
+.sidebar-top,
+.sidebar-footer,
+.brand,
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.sidebar-top,
+.sidebar-footer {
+  justify-content: space-between;
+}
+
+.brand-logo {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 10px;
+  background: var(--cb-gradient);
+  color: #fff;
+}
+
+.brand-name {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.new-chat-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  padding: 0.625rem;
+  border: 1px solid var(--cb-border);
+  border-radius: var(--cb-radius-sm);
+  background: var(--cb-surface);
+  font-weight: 600;
+  transition: border-color var(--cb-transition), color var(--cb-transition);
+
+  &:hover {
+    border-color: var(--cb-accent);
+    color: var(--cb-accent);
+  }
+}
+
+.conversation-list {
+  flex: 1;
+  overflow-y: auto;
+  margin: 0 -0.25rem;
+  padding: 0 0.25rem;
+}
+
+.group-label {
+  margin: 0.75rem 0.5rem 0.375rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--cb-text-muted);
+}
+
+.conversation-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.625rem;
+  border-radius: var(--cb-radius-sm);
+  color: var(--cb-text-muted);
+  cursor: pointer;
+
+  &:hover,
+  &.active {
+    background: var(--cb-surface-2);
+    color: var(--cb-text);
+  }
+
+  &.active {
+    font-weight: 500;
+  }
+
+  &:hover .delete-btn {
+    opacity: 1;
+  }
+}
+
+.conversation-title {
+  flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 0.875rem;
+}
+
+.delete-btn {
+  opacity: 0;
+  padding: 0.125rem;
+  color: var(--cb-text-muted);
+
+  &:hover {
+    color: var(--cb-danger);
+  }
+}
+
+.empty-state {
+  margin-top: 2.5rem;
+  text-align: center;
+  color: var(--cb-text-muted);
+  font-size: 0.875rem;
+
+  i {
+    font-size: 1.75rem;
+  }
+}
+
+.sidebar-footer {
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--cb-border);
+}
+
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--cb-accent-soft);
+  color: var(--cb-accent);
+}
+
+.user-name {
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+// Touch screens have no hover, so keep the delete button visible
+@media (hover: none) {
+  .delete-btn {
+    opacity: 1;
+  }
+}

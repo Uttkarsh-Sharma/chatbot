@@ -1,0 +1,18 @@
+@if (message().role === 'user') {
+  <div class="message user">
+    <div class="bubble">{{ message().content }}</div>
+  </div>
+} @else {
+  <div class="message assistant" [class.error]="message().isError">
+    <span class="bot-avatar"><i class="ri-sparkling-2-fill"></i></span>
+    <div class="assistant-body">
+      <div class="bubble">{{ message().content }}</div>
+      <div class="message-actions">
+        <button class="action-btn" type="button" [title]="isCopied() ? 'Copied' : 'Copy'" (click)="copyMessage()">
+          <i [class]="isCopied() ? 'ri-check-line' : 'ri-file-copy-line'"></i>
+          {{ isCopied() ? 'Copied' : 'Copy' }}
+        </button>
+      </div>
+    </div>
+  </div>
+}

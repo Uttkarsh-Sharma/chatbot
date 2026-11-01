@@ -1,0 +1,15 @@
+<div class="welcome">
+  <span class="welcome-logo"><i class="ri-sparkling-2-fill"></i></span>
+  <h2 class="welcome-title"><span class="gradient-text">Hello there!</span></h2>
+  <p class="welcome-subtitle">How can I help you today?</p>
+
+  <div class="suggestion-grid">
+    @for (suggestion of suggestions; track suggestion.title) {
+      <button class="suggestion-card" type="button" (click)="suggestionSelected.emit(suggestion.prompt)">
+        <i [class]="suggestion.icon"></i>
+        <span class="suggestion-title">{{ suggestion.title }}</span>
+        <span class="suggestion-prompt">{{ suggestion.prompt }}</span>
+      </button>
+    }
+  </div>
+</div>

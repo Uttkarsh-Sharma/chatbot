@@ -1,0 +1,98 @@
+:host {
+  display: block;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
+  max-width: var(--cb-content-width);
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.welcome-logo {
+  display: grid;
+  place-items: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  margin-bottom: 1.25rem;
+  border-radius: 18px;
+  background: var(--cb-gradient);
+  color: #fff;
+  font-size: 1.75rem;
+  box-shadow: var(--cb-shadow);
+}
+
+.welcome-title {
+  margin: 0;
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  font-weight: 700;
+}
+
+.gradient-text {
+  background: var(--cb-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.welcome-subtitle {
+  margin: 0.5rem 0 2rem;
+  color: var(--cb-text-muted);
+  font-size: 1.125rem;
+}
+
+.suggestion-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.suggestion-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
+  padding: 1rem;
+  border: 1px solid var(--cb-border);
+  border-radius: var(--cb-radius);
+  background: var(--cb-surface);
+  text-align: left;
+  transition: border-color var(--cb-transition), transform var(--cb-transition), box-shadow var(--cb-transition);
+
+  &:hover {
+    border-color: var(--cb-accent);
+    transform: translateY(-2px);
+    box-shadow: var(--cb-shadow);
+  }
+
+  i {
+    margin-bottom: 0.25rem;
+    color: var(--cb-accent);
+    font-size: 1.25rem;
+  }
+}
+
+.suggestion-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.suggestion-prompt {
+  color: var(--cb-text-muted);
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+@media (max-width: 600px) {
+  .suggestion-grid {
+    grid-template-columns: 1fr;
+  }
+}

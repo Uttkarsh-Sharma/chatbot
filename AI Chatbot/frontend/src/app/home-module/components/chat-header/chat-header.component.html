@@ -1,0 +1,23 @@
+<header class="chat-header">
+  <div class="header-left">
+    <button
+      class="icon-btn sidebar-toggle"
+      type="button"
+      title="Open sidebar"
+      [class.hidden-desktop]="isSidebarOpen()"
+      (click)="toggleSidebar.emit()">
+      <i class="ri-menu-2-line"></i>
+    </button>
+    <h1 class="chat-title">{{ title() }}</h1>
+  </div>
+
+  <div class="header-right">
+    <span class="model-chip">
+      <i class="ri-sparkling-2-line"></i>
+      {{ modelName }}
+    </span>
+    <button class="icon-btn" type="button" title="New chat" (click)="startNewChat()">
+      <i class="ri-edit-box-line"></i>
+    </button>
+  </div>
+</header>

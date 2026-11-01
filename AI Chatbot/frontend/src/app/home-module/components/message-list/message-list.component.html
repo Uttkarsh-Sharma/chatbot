@@ -1,0 +1,14 @@
+<div class="message-scroll" #scrollContainer>
+  <div class="message-column">
+    @for (message of messages(); track message.id) {
+      <app-message-bubble [message]="message"></app-message-bubble>
+    }
+
+    @if (isResponding()) {
+      <div class="typing-row" aria-label="ChatBot is typing">
+        <span class="bot-avatar"><i class="ri-sparkling-2-fill"></i></span>
+        <span class="typing-dots"><span></span><span></span><span></span></span>
+      </div>
+    }
+  </div>
+</div>

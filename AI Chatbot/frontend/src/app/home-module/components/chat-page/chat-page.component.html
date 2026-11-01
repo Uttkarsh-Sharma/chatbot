@@ -1,0 +1,30 @@
+<div class="chat-shell" [class.sidebar-open]="isSidebarOpen()">
+  <app-sidebar
+    (closeSidebar)="closeSidebar()"
+    (conversationSelected)="onConversationSelected()">
+  </app-sidebar>
+
+  <div class="sidebar-backdrop" (click)="closeSidebar()"></div>
+
+  <main class="chat-main">
+    <app-chat-header
+      [isSidebarOpen]="isSidebarOpen()"
+      (toggleSidebar)="toggleSidebar()"
+      (conversationSelected)="onConversationSelected()">
+    </app-chat-header>
+
+    <section class="chat-body">
+      @if (messages().length) {
+        <app-message-list [messages]="messages()" [isResponding]="isResponding()"></app-message-list>
+      } @else {
+        <app-welcome-screen (suggestionSelected)="sendMessage($event)"></app-welcome-screen>
+      }
+    </section>
+
+    <app-chat-input
+      [isResponding]="isResponding()"
+      (send)="sendMessage($event)"
+      (stop)="stopResponse()">
+    </app-chat-input>
+  </main>
+</div>
